@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Web Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        h1 { color: #2c3e50; }
+        p { color: #555; }
+        .container { background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.09); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Web Page</h1>
+        <p>This is a simple web page template. You can edit the content and styles as you like!</p>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Teleradiology Services</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons (Used for professional icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Font Setup (Inter is preferred) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #0A3D62; /* Dark Blue */
+            --color-secondary: #00BFA6; /* Teal/Aqua */
+            --color-accent: #E0F2F1; /* Light Teal */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate 50 */
+            scroll-behavior: smooth;
+        }
+
+        /* Custom utility classes */
+        .btn-primary {
+            @apply inline-block px-8 py-3 text-lg font-semibold text-white bg-[var(--color-secondary)] rounded-xl shadow-lg transition duration-300 ease-in-out hover:bg-opacity-90 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[var(--color-secondary)] focus:ring-opacity-50 transform hover:scale-[1.02];
+        }
+        
+        .section-heading {
+            @apply text-4xl sm:text-5xl font-extrabold mb-4 text-[var(--color-primary)] leading-tight;
+        }
+
+        /* Responsive Hero Background */
+        .hero-bg {
+            background-image: linear-gradient(135deg, rgba(10, 61, 98, 0.9), rgba(0, 191, 166, 0.7)), url('https://placehold.co/1920x800/0A3D62/FFFFFF?text=Diamond+Teleradiology+Services');
+            background-size: cover;
+            background-position: center;
+        }
+
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+                <!-- Logo -->
+                <div class="flex justify-start lg:w-0 lg:flex-1">
+                    <a href="#hero" class="text-2xl font-bold text-[var(--color-primary)]">
+                        <i data-lucide="scan" class="inline-block w-6 h-6 mr-1 text-[var(--color-secondary)]"></i>
+                        Diamond Teleradiology <span class="text-[var(--color-secondary)]">Services</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex space-x-10">
+                    <a href="#services" class="text-base font-medium text-gray-500 hover:text-[var(--color-secondary)] transition duration-150">Services</a>
+                    <a href="#technology" class="text-base font-medium text-gray-500 hover:text-[var(--color-secondary)] transition duration-150">Technology</a>
+                    <a href="#features" class="text-base font-medium text-gray-500 hover:text-[var(--color-secondary)] transition duration-150">Why Us</a>
+                    <a href="#contact" class="text-base font-medium text-gray-500 hover:text-[var(--color-secondary)] transition duration-150">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-secondary)]" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-lucide="menu" class="h-6 w-6" id="menu-icon"></i>
+                        <i data-lucide="x" class="h-6 w-6 hidden" id="close-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+            <div class="rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                <div class="pt-5 pb-6 px-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xl font-bold text-[var(--color-primary)]">Diamond Teleradiology <span class="text-[var(--color-secondary)]">Services</span></span>
+                        </div>
+                        <div class="-mr-2">
+                            <button id="mobile-menu-close" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-secondary)]">
+                                <span class="sr-only">Close menu</span>
+                                <i data-lucide="x" class="h-6 w-6"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <nav class="grid gap-y-8">
+                            <a href="#services" class="text-base font-medium text-gray-700 hover:text-[var(--color-secondary)]" onclick="closeMobileMenu()">Services</a>
+                            <a href="#technology" class="text-base font-medium text-gray-700 hover:text-[var(--color-secondary)]" onclick="closeMobileMenu()">Technology</a>
+                            <a href="#features" class="text-base font-medium text-gray-700 hover:text-[var(--color-secondary)]" onclick="closeMobileMenu()">Why Us</a>
+                            <a href="#contact" class="text-base font-medium text-gray-700 hover:text-[var(--color-secondary)]" onclick="closeMobileMenu()">Contact</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-bg pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40 text-white shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+                    Expert <span class="text-[var(--color-secondary)]">Teleradiology</span>. Anywhere. Anytime.
+                </h1>
+                <p class="text-xl sm:text-2xl max-w-3xl mx-auto mb-10 opacity-90">
+                    Providing rapid, accurate, and subspecialty interpretations for hospitals and clinics 24/7/365.
+                </p>
+                <a href="#contact" class="btn-primary">
+                    Start Your Partnership Today
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-sm font-semibold uppercase tracking-wider text-[var(--color-secondary)]">Our Offerings</span>
+                    <h2 class="section-heading">Comprehensive Coverage for Every Need</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        We deliver quality interpretations across all modalities, tailored to your facility's requirements.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Service Card 1: Nighthawk -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-[var(--color-primary)]">
+                        <i data-lucide="moon" class="w-10 h-10 text-[var(--color-secondary)] mb-4"></i>
+                        <h3 class="text-2xl font-bold text-[var(--color-primary)] mb-3">24/7 Nighthawk Coverage</h3>
+                        <p class="text-gray-600">Ensure continuous, high-quality care with our guaranteed turnaround times for after-hours and weekend emergencies.</p>
+                    </div>
+
+                    <!-- Service Card 2: Subspecialty -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-[var(--color-primary)]">
+                        <i data-lucide="brain" class="w-10 h-10 text-[var(--color-secondary)] mb-4"></i>
+                        <h3 class="text-2xl font-bold text-[var(--color-primary)] mb-3">Subspecialty Expertise</h3>
+                        <p class="text-gray-600">Access board-certified radiologists with fellowship training in Neuroradiology, MSK, Body Imaging, and more.</p>
+                    </div>
+
+                    <!-- Service Card 3: Preliminary/Daytime -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-[var(--color-primary)]">
+                        <i data-lucide="sun" class="w-10 h-10 text-[var(--color-secondary)] mb-4"></i>
+                        <h3 class="text-2xl font-bold text-[var(--color-primary)] mb-3">Daytime & Overflow Support</h3>
+                        <p class="text-gray-600">Seamlessly integrate our team to handle volume spikes, vacation coverage, or daily preliminary reads efficiently.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology & Security Section -->
+        <section id="technology" class="py-20 sm:py-24 bg-[var(--color-primary)] text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-sm font-semibold uppercase tracking-wider text-[var(--color-secondary)]">The Diamond Advantage</span>
+                    <h2 class="section-heading text-white">Secure, Fast, and Intelligent Platform</h2>
+                    <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                        Our proprietary PACS and AI integration ensure maximum efficiency and HIPAA compliance.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <!-- Feature 1 -->
+                        <div class="flex space-x-4">
+                            <i data-lucide="shield-check" class="w-8 h-8 flex-shrink-0 text-[var(--color-secondary)] mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">HIPAA Compliant Security</h3>
+                                <p class="text-gray-300">End-to-end encryption and robust infrastructure to protect patient data with the highest level of confidentiality.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="flex space-x-4">
+                            <i data-lucide="zap" class="w-8 h-8 flex-shrink-0 text-[var(--color-secondary)] mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">Sub-30 Minute Turnaround</h3>
+                                <p class="text-gray-300">Industry-leading average turnaround times for STAT cases, driven by optimized workflow and intelligent routing.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="flex space-x-4">
+                            <i data-lucide="bot" class="w-8 h-8 flex-shrink-0 text-[var(--color-secondary)] mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">Integrated AI Prioritization</h3>
+                                <p class="text-gray-300">Leverage AI to flag critical findings, ensuring the most urgent studies are read first, reducing errors and delays.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Placeholder Image/Diagram -->
+                    <div class="hidden lg:block">
+                        <div class="bg-gray-700 p-8 rounded-xl shadow-2xl border-2 border-[var(--color-secondary)]">
+                            <img src="https://placehold.co/600x400/1E3A8A/FFFFFF?text=Secure+Technology+Platform" alt="Technology Platform Diagram" class="rounded-lg w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us / Features Section -->
+        <section id="features" class="py-20 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-sm font-semibold uppercase tracking-wider text-[var(--color-secondary)]">The Impact</span>
+                    <h2 class="section-heading">Why Leading Institutions Choose Diamond</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1: Physician Communication -->
+                    <div class="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                        <i data-lucide="phone-call" class="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4 p-2 bg-[var(--color-accent)] rounded-full"></i>
+                        <h3 class="text-xl font-bold text-[var(--color-primary)] mb-2">Direct Physician Communication</h3>
+                        <p class="text-gray-600">Our radiologists are available for direct, real-time consultation with your clinical team, fostering true collaboration.</p>
+                    </div>
+
+                    <!-- Feature Card 2: Custom Workflow -->
+                    <div class="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                        <i data-lucide="settings" class="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4 p-2 bg-[var(--color-accent)] rounded-full"></i>
+                        <h3 class="text-xl font-bold text-[var(--color-primary)] mb-2">Custom Workflow Integration</h3>
+                        <p class="text-gray-600">We adapt to your facility's protocols, EMR, and PACS systems for a seamless, non-disruptive implementation.</p>
+                    </div>
+
+                    <!-- Feature Card 3: Quality Assurance -->
+                    <div class="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                        <i data-lucide="award" class="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4 p-2 bg-[var(--color-accent)] rounded-full"></i>
+                        <h3 class="text-xl font-bold text-[var(--color-primary)] mb-2">Rigorous Quality Assurance</h3>
+                        <p class="text-gray-600">A multi-point QA process ensures the highest diagnostic accuracy, maintaining your standard of care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/CTA Footer -->
+        <section id="contact" class="py-20 bg-[var(--color-secondary)]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">Ready to Elevate Your Radiology Service?</h2>
+                <p class="text-xl max-w-3xl mx-auto mb-10 opacity-90">
+                    Contact us today for a free consultation and customized coverage plan that meets your exact needs.
+                </p>
+                
+                <div class="bg-white p-8 sm:p-10 rounded-xl shadow-2xl text-left max-w-lg mx-auto">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[var(--color-secondary)] focus:border-[var(--color-secondary)] text-gray-900" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Work Email</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[var(--color-secondary)] focus:border-[var(--color-secondary)] text-gray-900" placeholder="your.email@hospital.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[var(--color-secondary)] focus:border-[var(--color-secondary)] text-gray-900" placeholder="Tell us about your coverage needs..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary !bg-[var(--color-primary)] !hover:bg-opacity-80 transition duration-300">
+                            Request a Call Back
+                        </button>
+                    </form>
+                    <p id="form-message" class="mt-4 text-center text-sm text-gray-700 hidden">Thank you for your interest! We will be in touch shortly.</p>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <p class="text-sm">&copy; 2024 Diamond Teleradiology Services. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="text-gray-400 hover:text-[var(--color-secondary)] transition duration-150 text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-[var(--color-secondary)] transition duration-150 text-sm">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // --- Mobile Menu Toggle Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden', !isHidden);
+            closeIcon.classList.toggle('hidden', isHidden);
+            mobileMenuButton.setAttribute('aria-expanded', !isHidden);
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+
+        // --- Simple Form Submission Logic (no backend) ---
+        const form = document.querySelector('#contact form');
+        const formMessage = document.getElementById('form-message');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a server.
+            console.log('Form Submitted:', {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            });
+
+            // Display success message and hide the form fields
+            form.style.display = 'none';
+            formMessage.classList.remove('hidden');
+
+            // Optionally reset after a delay (or just keep the success message visible)
+            // setTimeout(() => {
+            //     form.reset();
+            //     form.style.display = 'block';
+            //     formMessage.classList.add('hidden');
+            // }, 5000);
+        });
+
+    </script>
+</body>
+</html>
+
